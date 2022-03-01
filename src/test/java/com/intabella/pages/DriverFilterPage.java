@@ -1,6 +1,6 @@
 package com.intabella.pages;
 
-public class DriverFilterPage extends BasePage {
+public class DriverFilterPage extends BasePage{
 
 
 }

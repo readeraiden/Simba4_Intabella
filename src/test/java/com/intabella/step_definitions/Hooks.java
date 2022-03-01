@@ -2,6 +2,7 @@ package com.intabella.step_definitions;
 
 import com.intabella.pages.DashboardPage;
 import com.intabella.pages.LoginPage;
+import com.intabella.utilities.BrowserUtils;
 import com.intabella.utilities.ConfigurationReader;
 import com.intabella.utilities.Driver;
 import io.cucumber.java.After;
@@ -24,7 +25,7 @@ public class Hooks {
         String username = ConfigurationReader.get("store_manager_username");
         String password = ConfigurationReader.get("store_manager_password");
         loginPage.login(username,password);
-
+        BrowserUtils.waitForPageToLoad(15);
         new DashboardPage().navigateToModule("Fleet","Vehicles");
     }
 
@@ -37,7 +38,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
 
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
     }
 }
