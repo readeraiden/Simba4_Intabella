@@ -2,6 +2,7 @@ package com.intabella.step_definitions;
 
 import com.intabella.pages.CreateCarPage;
 import com.intabella.utilities.BrowserUtils;
+import com.intabella.utilities.CarGenerator;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -19,7 +20,7 @@ public class CreateCarStepsDefs {
 
     @And("the user enters new Car information")
     public void theUserEntersNewCarInformation() throws InterruptedException {
-        createCarPage.newCarGenerator();
+        CarGenerator.newCarGenerator();
 
     }
 

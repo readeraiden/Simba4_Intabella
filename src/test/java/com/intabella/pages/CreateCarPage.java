@@ -1,18 +1,10 @@
 package com.intabella.pages;
 
-import com.github.javafaker.Faker;
-
-import com.intabella.utilities.BrowserUtils;
-import com.intabella.utilities.Driver;
-import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.Random;
 
 public class CreateCarPage extends BasePage {
     @FindBy(xpath = "//a[@title='Create Car']")
@@ -134,45 +126,6 @@ public class CreateCarPage extends BasePage {
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/form/div[2]/div[2]/div/div[1]/div[2]/div/fieldset/div/div[2]/div[2]/div/div/label")
     public List<WebElement> myTags;
 
-    public void newCarGenerator() throws InterruptedException {
 
-        Faker faker = new Faker();
-        Random random = new Random();
-
-        waitUntilLoaderScreenDisappear();
-
-        String[] month = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        String date1 = month[random.nextInt(11) + 1] + " " + (random.nextInt(29) + 1) + ", " + (random.nextInt(40) + 1980);
-        String date2 = month[random.nextInt(11) + 1] + " " + (random.nextInt(29) + 1) + ", " + (random.nextInt(40) + 1980);
-
-        Driver.get().navigate().refresh();
-        licence_plate_inputbox.sendKeys(faker.bothify("##????").toUpperCase());
-        myTags.get(random.nextInt(7)).click();
-        driver_inputbox.sendKeys(faker.name().fullName());
-        location_inputbox.sendKeys(faker.address().city().toUpperCase());
-        chassis_inputbox.sendKeys(faker.bothify("######"));
-        modelYear_inputbox.sendKeys(random.nextInt(40) + 1980 + "");
-        lastOdometer_inputbox.sendKeys(random.nextInt(80 - 20) * 1000 + "");
-        BrowserUtils.scrollToElement(immatriculationDate_inputbox);
-        immatriculationDate_inputbox.sendKeys(date1);
-        immatriculationDate_inputbox.sendKeys(Keys.ESCAPE);
-        firstContractDate_inputbox.sendKeys(date2);
-        firstContractDate_inputbox.sendKeys(Keys.ESCAPE);
-        catalogValue_inputbox.sendKeys(random.nextInt(80 - 5) * 1000 + "");
-        seatNumber_inputbox.sendKeys(random.nextInt(4) + 3 + "");
-        doorsNumber_inputbox.sendKeys(random.nextInt(5) + 2 + "");
-        color_inputbox.sendKeys(StringUtils.capitalize(faker.color().name()));
-        transmission.click();
-        Driver.get().findElements(By.xpath("/html/body/div[8]/ul[2]/li")).get(random.nextInt(2)).click();
-        Thread.sleep(1000);
-        fuelType.click();
-        Driver.get().findElements(By.xpath("/html/body/div[9]/ul[2]/li")).get(random.nextInt(4)).click();
-        emissions_inputbox.sendKeys(random.nextInt(9 - 1) * 0.1 + "");
-        horsePower_inputbox.sendKeys(random.nextInt(180) + 120 + "");
-        horsePowerTaxation_inputbox.sendKeys(random.nextInt(9 - 1) * 0.1 + "");
-        power_inputbox.sendKeys(random.nextInt(300 - 20) + "");
-
-
-    }
 
 }
