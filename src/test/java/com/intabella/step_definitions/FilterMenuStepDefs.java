@@ -2,8 +2,10 @@ package com.intabella.step_definitions;
 
 import com.intabella.pages.VehiclesPage;
 import com.intabella.utilities.BrowserUtils;
+import com.intabella.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 
 public class FilterMenuStepDefs {
 
@@ -11,8 +13,9 @@ public class FilterMenuStepDefs {
 
     @Given("the user click on the filter button")
     public void theUserClickOnTheFilterButton() {
-        BrowserUtils.waitForPageToLoad(15);
+        BrowserUtils.waitForPageToLoad(5);
         vehiclesPage.filterIconClick();
+       // Driver.get().findElement(By.cssSelector("i.fa-filter.hide-text")).click();
     }
 
     @When("the user click on manage filter button")
