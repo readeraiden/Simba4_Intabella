@@ -8,8 +8,7 @@ import com.intabella.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +21,7 @@ public class Hooks {
         System.out.println("\tthis is coming from BEFORE");
         Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Driver.get().get(ConfigurationReader.get("url"));
+
         String username = ConfigurationReader.get("store_manager_username");
         String password = ConfigurationReader.get("store_manager_password");
         loginPage.login(username,password);
@@ -38,7 +38,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
 
-        //Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 }

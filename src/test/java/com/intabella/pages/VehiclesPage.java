@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class VehiclesPage extends BasePage {
 
     @FindBy(css = "a.add-filter-button")
@@ -14,6 +16,19 @@ public class VehiclesPage extends BasePage {
     @FindBy(css = ".fa-filter.hide-text")
     public WebElement filterIcon;
 
+    @FindBy(xpath = "//a[@title='Reset']")
+    public WebElement resetButton;
+
+    @FindBy (xpath = "(//button[@data-toggle='dropdown'])[1]")
+    public WebElement viewPerPageButton;
+
+    //Selects all the rows on the vehicle table:to find row number
+    @FindBy (xpath = "//tr[@class='grid-row']")
+    public List<WebElement> tableRowNumbers;
+
+    public WebElement createLocator(String optionName) {
+        return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
+    }
 
     public void filterIconClick() {
         BrowserUtils.waitFor(5);
@@ -21,4 +36,12 @@ public class VehiclesPage extends BasePage {
             filterIcon.click();
         }
     }
+
+
+
+
+
+
+
+
 }
