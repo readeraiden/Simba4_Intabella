@@ -1,23 +1,24 @@
+@INTA-1146
 Feature: Filter Menu
 
-  @AC1
+  @INTA-1147 @AC1
   Scenario: "Manage Filter" button should be hidden by default.
     Then verify Manage Filter button is hidden
 
-  @AC1(-)
+  @INTA-1148 @AC1(-)
   Scenario: "Manage Filter" button should be hidden by default(negative).
     Given the user click on the filter button
     When the user log out and log in again
     Then verify Manage Filter button is hidden
 
 
-  @AC2
+  @INTA-1149 @AC2
   Scenario: When a user clicks on the filter icon, the "Manage Filter" button should be visible
     When the user click on the filter button
     Then verify Manage Filter button is displayed
 
 
-  @AC3
+  @INTA-1150 @AC3
   Scenario Outline:User can apply filters by clicking on the filter name, from the 'Manage Filters' menu.
     Given the user click on the filter button
     And the user click on manage filter button
@@ -45,7 +46,7 @@ Feature: Filter Menu
       | HorsepowerTaxation       |
       | Power(KW)                |
 
-  @AC4
+  @INTA-1151 @AC4
   Scenario Outline:User can see the corresponding filter option after typing the filter name on the filter input box, from the 'Manage Filters' menu.
     Given the user click on the filter button
     And the user click on manage filter button
@@ -59,14 +60,14 @@ Feature: Filter Menu
       | Horsepower    |
       | Transmission  |
 
- @AC5
+ @INTA-1152 @AC5
  Scenario: User can apply multiple filters at the same time by selecting filter name check boxes.
    Given the user click on the filter button
    And the user click on manage filter button
    When the user click on "Tags" ,"Location" , "Driver"
    Then Verify that "Tags", "Location" and "Driver" options are selected
 
- @AC6
+ @INTA-1153 @AC6
  Scenario:User can remove all filters by clicking on the reset icon, under the 'Fleet-Vehicles' module
    Given the user click on the filter button
    And the user click on manage filter button
