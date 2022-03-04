@@ -59,4 +59,17 @@ Feature: Filter Menu
       | Horsepower    |
       | Transmission  |
 
+ @AC5
+ Scenario: User can apply multiple filters at the same time by selecting filter name check boxes.
+   Given the user click on the filter button
+   And the user click on manage filter button
+   When the user click on "Tags" ,"Location" , "Driver"
+   Then Verify that "Tags", "Location" and "Driver" options are selected
+
+
+
+
+
+
+
 

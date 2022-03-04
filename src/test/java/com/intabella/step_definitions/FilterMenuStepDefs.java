@@ -74,12 +74,30 @@ public class FilterMenuStepDefs {
         Driver.get().findElement(By.xpath("//input[@type='search']")).sendKeys(wordsToSearch);
         BrowserUtils.waitFor(2);
 
-
     }
 
     @Then("verify  {string} filter option is displayed")
     public void verifyFilterOptionIsDisplayed(String wordsToSearch) {
         Assert.assertTrue(new VehiclesPage().createLocator(wordsToSearch).isDisplayed());
+    }
+
+    @When("the user click on {string} ,{string} , {string}")
+    public void theUserClickOn(String arg0, String arg1, String arg2) {
+        VehiclesPage vehiclesPage = new VehiclesPage();
+        vehiclesPage.createLocator(arg0).click();
+        vehiclesPage.createLocator(arg1).click();
+        vehiclesPage.createLocator(arg2).click();
+        BrowserUtils.waitFor(3);
+
+
+    }
+
+    @Then("Verify that {string}, {string} and {string} options are selected")
+    public void verifyThatAndOptionsAreSelected(String arg0, String arg1, String arg2) {
+        Assert.assertTrue( new VehiclesPage().createLocator(arg0).isSelected());
+        Assert.assertTrue( new VehiclesPage().createLocator(arg1).isSelected());
+        Assert.assertTrue( new VehiclesPage().createLocator(arg2).isSelected());
+
     }
 }
 
