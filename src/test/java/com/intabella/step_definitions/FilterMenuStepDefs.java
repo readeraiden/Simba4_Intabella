@@ -15,8 +15,9 @@ public class FilterMenuStepDefs {
 
     @Given("the user click on the filter button")
     public void theUserClickOnTheFilterButton() {
-        BrowserUtils.waitForPageToLoad(5);
+        BrowserUtils.waitForPageToLoad(10);
         vehiclesPage.filterIconClick();
+        BrowserUtils.waitFor(2);
        // Driver.get().findElement(By.cssSelector("i.fa-filter.hide-text")).click();
     }
 
@@ -31,6 +32,11 @@ public class FilterMenuStepDefs {
     public void verifyManageFilterButtonIsHidden() {
 
         Assert.assertFalse(new VehiclesPage().manageFilters.isDisplayed());
+    }
+
+    @Then("verify Manage Filter button is displayed")
+    public void verifyManageFilterButtonIsDisplayed() {
+        Assert.assertTrue(new VehiclesPage().manageFilters.isDisplayed());
     }
 }
 
