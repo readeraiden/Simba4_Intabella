@@ -1,7 +1,10 @@
 package com.intabella.step_definitions;
 
+import com.intabella.pages.DashboardPage;
+import com.intabella.pages.LoginPage;
 import com.intabella.pages.VehiclesPage;
 import com.intabella.utilities.BrowserUtils;
+import com.intabella.utilities.ConfigurationReader;
 import com.intabella.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -37,6 +40,20 @@ public class FilterMenuStepDefs {
     @Then("verify Manage Filter button is displayed")
     public void verifyManageFilterButtonIsDisplayed() {
         Assert.assertTrue(new VehiclesPage().manageFilters.isDisplayed());
+    }
+
+    @When("the user log out and log in again")
+    public void theUserLogOutAndLogInAgain() {
+        VehiclesPage vehiclesPage = new VehiclesPage();
+        vehiclesPage.logOut();
+        Driver.get().get(ConfigurationReader.get("url"));
+        String username = ConfigurationReader.get("store_manager_username");
+        String password = ConfigurationReader.get("store_manager_password");
+        new LoginPage().login(username,password);
+        BrowserUtils.waitForPageToLoad(15);
+        new DashboardPage().navigateToModule("Fleet","Vehicles");
+        BrowserUtils.waitForPageToLoad(15);
+
     }
 }
 
