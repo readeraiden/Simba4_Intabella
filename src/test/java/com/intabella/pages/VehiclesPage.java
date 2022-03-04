@@ -21,7 +21,7 @@ public class VehiclesPage extends BasePage {
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
     }
 
-    public void filterIconClick() {
+    public void filterIconClick()  {
         BrowserUtils.waitFor(5);
         if (!Driver.get().findElement(By.xpath("//a//i[@class='fa-filter hide-text']/..")).getAttribute("class").contains("pressed")) {
             filterIcon.click();
