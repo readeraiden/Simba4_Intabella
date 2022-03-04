@@ -18,7 +18,6 @@ public class VehiclesPage extends BasePage {
     public WebElement resetButton;
 
     public WebElement createLocator(String optionName) {
-
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
     }
 

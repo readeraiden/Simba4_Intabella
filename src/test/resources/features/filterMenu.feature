@@ -35,7 +35,7 @@ Feature: Filter Menu
       | LastOdometer             |
       | ImmatriculationDate      |
       | FirstContractDate        |
-      | Catalog Value(VAT Incl.) |
+      | CatalogValue(VATIncl.)   |
       | SeatsNumber              |
       | DoorsNumber              |
       | Color                    |
