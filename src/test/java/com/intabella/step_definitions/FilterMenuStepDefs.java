@@ -55,5 +55,18 @@ public class FilterMenuStepDefs {
         BrowserUtils.waitForPageToLoad(15);
 
     }
+
+    @When("the user click on {string}")
+    public void theUserClickOn(String option){
+        VehiclesPage vehiclesPage = new VehiclesPage();
+        vehiclesPage.createLocator(option).click();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("the {string} should be selected")
+    public void theShouldBeSelected(String option) {
+       Assert.assertTrue( new VehiclesPage().createLocator(option).isSelected());
+
+    }
 }
 

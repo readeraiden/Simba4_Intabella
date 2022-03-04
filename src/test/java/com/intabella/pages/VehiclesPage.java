@@ -14,6 +14,10 @@ public class VehiclesPage extends BasePage {
     @FindBy(css = ".fa-filter.hide-text")
     public WebElement filterIcon;
 
+    public WebElement createLocator(String optionName) {
+
+        return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
+    }
 
     public void filterIconClick() {
         BrowserUtils.waitFor(5);
