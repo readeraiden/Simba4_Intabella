@@ -50,9 +50,9 @@ public class FilterMenuStepDefs {
         String username = ConfigurationReader.get("store_manager_username");
         String password = ConfigurationReader.get("store_manager_password");
         new LoginPage().login(username,password);
-        BrowserUtils.waitForPageToLoad(15);
+        BrowserUtils.waitForPageToLoad(10);
         new DashboardPage().navigateToModule("Fleet","Vehicles");
-        BrowserUtils.waitForPageToLoad(15);
+        BrowserUtils.waitForPageToLoad(10);
 
     }
 
@@ -67,6 +67,19 @@ public class FilterMenuStepDefs {
     public void theShouldBeSelected(String option) {
        Assert.assertTrue( new VehiclesPage().createLocator(option).isSelected());
 
+    }
+
+    @When("the user types {string} on the filter input box")
+    public void theUserTypesOnTheFilterInputBox(String wordsToSearch) {
+        Driver.get().findElement(By.xpath("//input[@type='search']")).sendKeys(wordsToSearch);
+        BrowserUtils.waitFor(2);
+
+
+    }
+
+    @Then("verify  {string} filter option is displayed")
+    public void verifyFilterOptionIsDisplayed(String wordsToSearch) {
+        Assert.assertTrue(new VehiclesPage().createLocator(wordsToSearch).isDisplayed());
     }
 }
 

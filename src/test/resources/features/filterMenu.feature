@@ -45,5 +45,18 @@ Feature: Filter Menu
       | HorsepowerTaxation       |
       | Power(KW)                |
 
+  @AC4
+  Scenario Outline:User can see the corresponding filter option after typing the filter name on the filter input box, from the 'Manage Filters' menu.
+    Given the user click on the filter button
+    And the user click on manage filter button
+    When the user types "<wordsToSearch>" on the filter input box
+    Then verify  "<wordsToSearch>" filter option is displayed
+    Examples:
+      | wordsToSearch |
+      | Tags          |
+      | Location      |
+      | Color         |
+      | Horsepower    |
+      | Transmission  |
 
 
