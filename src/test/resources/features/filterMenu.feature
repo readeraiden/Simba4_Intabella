@@ -66,6 +66,14 @@ Feature: Filter Menu
    When the user click on "Tags" ,"Location" , "Driver"
    Then Verify that "Tags", "Location" and "Driver" options are selected
 
+ @AC6
+ Scenario:User can remove all filters by clicking on the reset icon, under the 'Fleet-Vehicles' module
+   Given the user click on the filter button
+   And the user click on manage filter button
+   And the user click on "Tags" ,"Location" , "Driver"
+   When the user click on reset button
+   Then verify that "Tags", "Location","Driver" filters are not selected
+
 
 
 

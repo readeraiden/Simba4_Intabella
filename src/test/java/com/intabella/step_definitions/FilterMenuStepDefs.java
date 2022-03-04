@@ -99,5 +99,20 @@ public class FilterMenuStepDefs {
         Assert.assertTrue( new VehiclesPage().createLocator(arg2).isSelected());
 
     }
+
+    @When("the user click on reset button")
+    public void theUserClickOnResetButton() {
+        new VehiclesPage().resetButton.click();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @Then("verify that {string}, {string},{string} filters are not selected")
+    public void verifyThatFiltersAreNotSelected(String arg0, String arg1, String arg2) {
+        Assert.assertFalse( new VehiclesPage().createLocator(arg0).isSelected());
+        Assert.assertFalse( new VehiclesPage().createLocator(arg1).isSelected());
+        Assert.assertFalse( new VehiclesPage().createLocator(arg2).isSelected());
+
+    }
 }
 

@@ -14,6 +14,9 @@ public class VehiclesPage extends BasePage {
     @FindBy(css = ".fa-filter.hide-text")
     public WebElement filterIcon;
 
+    @FindBy(xpath = "//a[@title='Reset']")
+    public WebElement resetButton;
+
     public WebElement createLocator(String optionName) {
 
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
