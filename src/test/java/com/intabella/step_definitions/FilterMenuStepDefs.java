@@ -4,7 +4,9 @@ import com.intabella.pages.VehiclesPage;
 import com.intabella.utilities.BrowserUtils;
 import com.intabella.utilities.Driver;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class FilterMenuStepDefs {
@@ -24,4 +26,11 @@ public class FilterMenuStepDefs {
         vehiclesPage.manageFilters.click();
 
     }
+
+    @Then("verify Manage Filter button is hidden")
+    public void verifyManageFilterButtonIsHidden() {
+
+        Assert.assertFalse(new VehiclesPage().manageFilters.isDisplayed());
+    }
 }
+
