@@ -2,6 +2,7 @@ package com.intabella.step_definitions;
 
 import com.intabella.pages.VehiclesPage;
 import com.intabella.utilities.BrowserUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -9,17 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LasOdometerStepDefs {
+    VehiclesPage vehiclesPage=new VehiclesPage();
 
-    @Then("the user should be select {string}")
-    public void the_user_should_be_select(String option) {
-        List<String> actualOptions = BrowserUtils.getElementsText(new VehiclesPage().filterOptions);
-        String odometerOption = actualOptions.get(6);
-        Assert.assertEquals("the list doesn't contain \"Last Odometer\" option",odometerOption,option);
-
-       VehiclesPage vehiclesPage=new VehiclesPage();
-       vehiclesPage.lastOdometer.click();
+    @And("the user click on between button")
+    public void theUserClickOnBetweenButton() {
+        vehiclesPage.lastOdometerBetween.click();
 
     }
 
+    @Then("Last Odometer filter should provide the {string}")
+    public void lastOdometerFilterShouldProvideThe(String methods) {
 
+        List<String> actualmethods = BrowserUtils.getElementsText(vehiclesPage.methodOptions);
+        Assert.assertEquals("the list doesn't contain "+methods+" option","["+methods+"]",actualmethods.toString());
+    }
+
+    @And("the user click on Last Odometer All button")
+    public void theUserClickOnLastOdometerAllButton() {
+        vehiclesPage.lastOdometerAllbtn.click();
+    }
 }
