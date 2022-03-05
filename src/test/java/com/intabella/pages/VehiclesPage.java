@@ -16,13 +16,12 @@ public class VehiclesPage extends BasePage {
     @FindBy(css = ".fa-filter.hide-text")
     public WebElement filterIcon;
 
-    @FindBy(xpath = "//div[@class='ui-multiselect-footer']/../ul/li")
-    public List<WebElement> filterOptions;
+    @FindBy(xpath = "//a[@title='Reset']")
+    public WebElement resetButton;
 
-    @FindBy(xpath = "//div[@class='ui-multiselect-footer']/../ul/li[7]")
-    public WebElement lastOdometer;
-
-
+    public WebElement createLocator(String optionName) {
+        return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
+    }
 
     public void filterIconClick() {
         BrowserUtils.waitFor(5);
