@@ -25,20 +25,20 @@ public class Hooks {
         String username = ConfigurationReader.get("store_manager_username");
         String password = ConfigurationReader.get("store_manager_password");
         loginPage.login(username,password);
-        BrowserUtils.waitForPageToLoad(15);
-        new DashboardPage().navigateToModule("Fleet","Vehicles");
+       // BrowserUtils.waitForPageToLoad(15);
+      //  new DashboardPage().navigateToModule("Fleet","Vehicles");
     }
 
 
 
-    @After
-    public void tearDown(Scenario scenario){
-        if(scenario.isFailed()){
-            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","screenshot");
-        }
+//    @After
+//    public void tearDown(Scenario scenario){
+//        if(scenario.isFailed()){
+//            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot,"image/png","screenshot");
+//        }
+//
+//        Driver.closeDriver();
 
-        Driver.closeDriver();
-
-    }
+  //  }
 }
