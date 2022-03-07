@@ -27,4 +27,8 @@ public class VehiclesPage extends BasePage {
             filterIcon.click();
         }
     }
+
+    public WebElement FilterMethods(String FilterName){
+        return Driver.get().findElement(By.xpath("//div[normalize-space(text())='"+FilterName+"']"));
+    }
 }
