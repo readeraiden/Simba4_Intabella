@@ -66,17 +66,21 @@ public class LogoutStepDefs {
     }
     @Given("user is away the from  keyboard for three minutes")
     public void user_is_away_the_from_keyboard_for_three_minutes() {
-       Actions action = new Actions(Driver.get());
-
-        WebElement html=Driver.get().findElement(By.tagName("html"));// actionda kullanabilirsin dene
-        WebDriverWait wait = new WebDriverWait(Driver.get(), 60);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@class='no-hash']")));
-       // Driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-       // action.moveToElement(loginPage.logoutButton).contextClick().build().perform();
-        // Perform click-and-hold action on the element
-        //action.clickAndHold(loginPage.logoutButton).build().perform();
-        action.moveToElement(html);
-        action.clickAndHold(loginPage.logoutButton).build().perform();
+       String url1= Driver.get().getCurrentUrl();
+        BrowserUtils.waitFor(182);
+        String url2= Driver.get().getCurrentUrl();
+        Assert.assertNotEquals(url2,url1);
+//       Actions action = new Actions(Driver.get());
+//
+//        WebElement html=Driver.get().findElement(By.tagName("html"));// actionda kullanabilirsin dene
+//        WebDriverWait wait = new WebDriverWait(Driver.get(), 60);
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@class='no-hash']")));
+//       // Driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//       // action.moveToElement(loginPage.logoutButton).contextClick().build().perform();
+//        // Perform click-and-hold action on the element
+//        //action.clickAndHold(loginPage.logoutButton).build().perform();
+//        action.moveToElement(html);
+//        action.clickAndHold(loginPage.logoutButton).build().perform();
 
 
 
