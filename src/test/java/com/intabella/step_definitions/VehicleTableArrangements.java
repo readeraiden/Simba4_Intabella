@@ -169,13 +169,9 @@ public class VehicleTableArrangements {
     @Then("verify that the list is not sorted by {string}")
     public void verifyThatTheListIsNotSortedBy(String sortColumn) {
 
-       WebElement columnSorted=Driver.get().findElement(By.xpath("//th[contains(@class,'ascending')])[1]"));
-       if (columnSorted.getAttribute("class").contains("ascending")||columnSorted.getAttribute("class").contains("descending")){
-           System.out.println("failed");
-       }else{
-           System.out.println("passed");
-       }
 
+       WebElement columnSorted=Driver.get().findElement(By.xpath("(//th[contains(@class,'grid-cell grid-header-cell grid-header-cell-"+sortColumn+"')])"));
+       Assert.assertFalse(columnSorted.getAttribute("class").contains("ascending"));
 
     }
 }
