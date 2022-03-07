@@ -37,6 +37,8 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//td[@class='number-cell grid-cell grid-body-cell grid-body-cell-LastOdometer']")
     public List<WebElement> lastOdometerValues;
 
+    @FindBy(xpath = "//input[@id='LastOdometer']/../button")
+    public WebElement updateBtn;
 
     public WebElement createLocator(String optionName) {
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));

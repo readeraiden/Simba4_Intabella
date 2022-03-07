@@ -46,5 +46,7 @@ public class LasOdometerStepDefs {
         vehiclesPage.filterEnd.click();
         vehiclesPage.filterEnd.sendKeys(end);
       //  List<String> actualmethods = BrowserUtils.get;
+        vehiclesPage.updateBtn.click();
+
     }
 }
