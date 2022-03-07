@@ -49,6 +49,10 @@ public class VehiclesPage extends BasePage {
         }
     }
 
+    public WebElement FilterMethods(String FilterName){
+        return Driver.get().findElement(By.xpath("//div[normalize-space(text())='"+FilterName+"']"));
+    }
+
 
     public WebElement filterTypeLocators(String methodName) {
         return Driver.get().findElement(By.xpath("//a[text()=\""+methodName+"\"]"));

@@ -18,10 +18,10 @@ public class FilterMenuStepDefs {
 
     @Given("the user click on the filter button")
     public void theUserClickOnTheFilterButton() {
-        BrowserUtils.waitForPageToLoad(10);
+        BrowserUtils.waitForPageToLoad(25);
         vehiclesPage.filterIconClick();
-        BrowserUtils.waitFor(2);
-       // Driver.get().findElement(By.cssSelector("i.fa-filter.hide-text")).click();
+        BrowserUtils.waitFor(5);
+
     }
 
     @When("the user click on manage filter button")
