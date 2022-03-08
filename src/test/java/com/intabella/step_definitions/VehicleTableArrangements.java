@@ -45,11 +45,12 @@ public class VehicleTableArrangements {
         //normal-space()=trim methodu ile aynı boşlukları siliyor
 
         WebElement myOption = Driver.get().findElement(By.xpath("//a[normalize-space()='"+options+"']"));
-        //  1.way ...25 seçili ise click yapma-----  expected:25 row actual:0 yine aynı hata verdi
-        //2. way......default 25. istenen 25. tekrar click yapıyor. expected:25, actual:0 aynı hatayı veiyor
-        //if(!myOption.isSelected()){
+
+        if(!myOption.getText().contains("25")){
             myOption.click();
-        //}
+        }
+
+
 
     }
 
@@ -174,5 +175,8 @@ public class VehicleTableArrangements {
        Assert.assertFalse(columnSorted.getAttribute("class").contains("ascending"));
 
     }
+
+
 }
+
 

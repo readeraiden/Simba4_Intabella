@@ -11,6 +11,7 @@ Feature: Vehicle Table Arrangements
     Then the user click on view per page button  values should be "10", "25","50","100"
 
 
+
   @US004_AC3.1
   Scenario: The user arrange number of rows by clicking the options from dropdown menu one after another on the same open browser
     When the user click "10" from drop down menu
@@ -34,6 +35,7 @@ Feature: Vehicle Table Arrangements
       | 25      |
       | 50      |
       | 100     |
+
 
   @US004_AC4
   Scenario Outline: Sort a column in ascending or descending order
@@ -70,6 +72,5 @@ Feature: Vehicle Table Arrangements
     Given the user click on "ModelYear" colum from table
     When the user click on reset button
     Then verify that the list is not sorted by "ModelYear"
-
 
 
