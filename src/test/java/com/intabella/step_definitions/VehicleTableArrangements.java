@@ -34,7 +34,7 @@ public class VehicleTableArrangements {
     //-------------------
     @Given("the user click on the view per page button")
     public void theUserClickOnTheViewPerPageButton() {
-       BrowserUtils.waitFor(4);
+       BrowserUtils.waitFor(8);
         vehiclesPage.viewPerPageButton.click();
     }
 
@@ -46,9 +46,9 @@ public class VehicleTableArrangements {
 
         WebElement myOption = Driver.get().findElement(By.xpath("//a[normalize-space()='"+options+"']"));
 
-        if(!myOption.getText().contains("25")){
+        //if(!myOption.getText().contains("25")){
             myOption.click();
-        }
+       // }
 
 
 

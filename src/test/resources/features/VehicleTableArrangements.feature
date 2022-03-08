@@ -11,9 +11,8 @@ Feature: Vehicle Table Arrangements
     Then the user click on view per page button  values should be "10", "25","50","100"
 
 
-
   @US004_AC3.1
-  Scenario: The user arrange number of rows by clicking the options from dropdown menu one after another on the same open browser
+  Scenario: The user arrange number of rows by clicking the options from dropdown menu one after another with the same open browser
     When the user click "10" from drop down menu
     Then verify that the user able to see only "10" rows from table
     When the user click "25" from drop down menu
@@ -24,15 +23,15 @@ Feature: Vehicle Table Arrangements
     Then verify that the user able to see only "100" rows from table
 
 
-  @US004_AC3
-  Scenario Outline: User can arrange rows/vehicle numbers to be displayed by clicking on the 'View Per Page' button under the Fleet-Vehicles module
+  @US004_AC3.2
+  Scenario Outline: The user arrange number of rows by clicking the options from dropdown menu with the different browsers
     Given the user click on the view per page button
-    Then the user click click "<options>" from drop down menu
+    Then the user click "<options>" from drop down menu
     And verify that the user able to see only "<options>" rows from the table
     Examples:
       | options |
       | 10      |
-      | 25      |
+    #  | 25      |
       | 50      |
       | 100     |
 
