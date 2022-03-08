@@ -4,6 +4,10 @@ import com.intabella.pages.AddEventPage;
 import com.intabella.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddEvent2StepDefs {
 
@@ -27,5 +31,18 @@ public class AddEvent2StepDefs {
             Assert.assertTrue(addEventPage.allDayEventCheckbox.isSelected());
 
         }
-
+    @Then("Repeat down menu should include below options")
+    public void repeat_down_menu_should_include_below_options(List<String> options) {
+        addEventPage.repeatCheckbox.click();
+        ArrayList<String> option=new ArrayList<>();
+        for (int i=0; i<4 ;i++ ) {
+            option.add(i, options.get(i));
+        }
+        List<WebElement> allOptions = addEventPage.repeatDropdownMenu;
+        for (int i = 0; i < option.size()-1 ; i++) {
+            Assert.assertTrue(allOptions.get(i).getText().contains(option.get(i)));
+        }
     }
+
+
+}

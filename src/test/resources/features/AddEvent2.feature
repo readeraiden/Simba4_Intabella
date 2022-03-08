@@ -10,14 +10,12 @@ Feature: Add Event 2
     When User clicks on Add Event button
     Then User can mark the event as an all-day event
   @todo
-  Scenario Outline: Repeat Menu
+  Scenario: Repeat Menu
     Given User clicks on any vehicle
     When User clicks on Add Event button
-    Then Repeat down menu options include "<options>"
+    Then Repeat down menu should include below options
 
-    Examples:
-      |options|
-    | Daily      |
-    |Weekly      |
-    |Monthly|
-    |Yearly|
+      | Daily   |
+      | Weekly  |
+      | Monthly |
+      | Yearly  |
