@@ -38,6 +38,13 @@ public class VehiclesPage extends BasePage {
     public List<WebElement> lastOdometerValues;
 
 
+    @FindBy (xpath = "(//button[@data-toggle='dropdown'])[1]")
+    public WebElement viewPerPageButton;
+
+    //Selects all the rows on the vehicle table:to find row number
+    @FindBy (xpath = "//tr[@class='grid-row']")
+    public List<WebElement> tableRowNumbers;
+
     public WebElement createLocator(String optionName) {
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
     }
@@ -57,5 +64,13 @@ public class VehiclesPage extends BasePage {
     public WebElement filterTypeLocators(String methodName) {
         return Driver.get().findElement(By.xpath("//a[text()=\""+methodName+"\"]"));
     }
+
+
+
+
+
+
+
+
 
 }
