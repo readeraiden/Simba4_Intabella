@@ -11,6 +11,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class FilterMenuStepDefs {
 
@@ -18,10 +21,10 @@ public class FilterMenuStepDefs {
 
     @Given("the user click on the filter button")
     public void theUserClickOnTheFilterButton() {
-        BrowserUtils.waitForPageToLoad(25);
+        BrowserUtils.waitForPageToLoad(10);
         vehiclesPage.filterIconClick();
-        BrowserUtils.waitFor(5);
-
+        BrowserUtils.waitFor(2);
+       // Driver.get().findElement(By.cssSelector("i.fa-filter.hide-text")).click();
     }
 
     @When("the user click on manage filter button")
@@ -114,5 +117,10 @@ public class FilterMenuStepDefs {
         Assert.assertFalse( new VehiclesPage().createLocator(arg2).isSelected());
 
     }
-}
 
+
+
+
+
+
+}
