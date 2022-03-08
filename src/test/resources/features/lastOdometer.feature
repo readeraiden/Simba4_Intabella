@@ -16,19 +16,23 @@ Feature: Last Odometer Filter
     And the user click on between button
     Then Last Odometer filter should provide the "<methods>"
     Examples:
-      | methods                                                                                                                            |
+      | methods                                                                                                                          |
       | Between, Not Between, Equals, Not Equals, More Than, Less Than, Equals Or More Than, Equals Or Less Than, Is Empty, Is Not Empty |
+
   @wip
-    Scenario: user selects the "Between" method with numeric values
-      Given the user click on the filter button
-      When the user click on manage filter button
-      When the user click on "LastOdometer"
-      And the user click on Last Odometer All button
+  Scenario Outline: user selects the "Between" method with numeric values
+    Given the user click on the filter button
+    When the user click on manage filter button
+    When the user click on "LastOdometer"
+    And the user click on Last Odometer All button
     And the user click on between button
-      And the user click on "between" method
-    Then  the results should be between the specified values
+    And the user click on "between" method
+    And the user submit "<start>" and "<end>" values
+    Then  the results should be between the specified "<start>" and "<end>" values
 
-
+    Examples:
+      | start | end  |
+      | 1000  | 200000 |
 
 
       
