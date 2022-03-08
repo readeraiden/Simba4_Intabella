@@ -40,6 +40,14 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//input[@id='LastOdometer']/../button")
     public WebElement updateBtn;
 
+    @FindBy(xpath = "//div[@class='filter-start']/input")
+    public WebElement equalsInput;
+
+    @FindBy(xpath = "//div[@class='btn filter-criteria-selector oro-drop-opener oro-dropdown-toggle filter-default-value']//span/b")
+    public WebElement Allbtn;
+
+
+
     public WebElement createLocator(String optionName) {
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
     }

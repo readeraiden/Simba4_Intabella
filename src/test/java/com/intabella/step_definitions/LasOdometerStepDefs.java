@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LasOdometerStepDefs {
-    VehiclesPage vehiclesPage=new VehiclesPage();
+    VehiclesPage vehiclesPage = new VehiclesPage();
 
     @And("the user click on between button")
     public void theUserClickOnBetweenButton() {
@@ -25,7 +25,7 @@ public class LasOdometerStepDefs {
     public void lastOdometerFilterShouldProvideThe(String methods) {
 
         List<String> actualmethods = BrowserUtils.getElementsText(vehiclesPage.methodOptions);
-        Assert.assertEquals("the list doesn't contain "+methods+" option","["+methods+"]",actualmethods.toString());
+        Assert.assertEquals("the list doesn't contain " + methods + " option", "[" + methods + "]", actualmethods.toString());
     }
 
     @And("the user click on Last Odometer All button")
@@ -55,21 +55,73 @@ public class LasOdometerStepDefs {
     public void theResultsShouldBeBetweenTheSpecifiedAndValues(String start, String end) {
         BrowserUtils.waitFor(4);
         List<String> results = BrowserUtils.getElementsText(vehiclesPage.lastOdometerValues);
+        for (String result : results) {
+            result = result.replace(",", "");
+            boolean conditionBigger = Integer.parseInt(result) >= Integer.parseInt(start);
+            boolean conditionSmaller = Integer.parseInt(result) <= Integer.parseInt(end);
+            if (conditionBigger && conditionSmaller) {
+                Assert.assertTrue("the result must be equal or bigger than min filtered value", true);
+                Assert.assertTrue("the result must be equal or less than max filtered value", true);
+            }
+            System.out.println(result);
+        }
+    }
 
+    @And("the user submit {string} values")
+    public void theUserSubmitValues(String value) {
 
-        for(String result : results){
-            result=result.replace(",","");
+        vehiclesPage.equalsInput.sendKeys(value);
+        vehiclesPage.updateBtn.click();
+    }
 
-            if(Integer.parseInt(result) >= Integer.parseInt(start) && Integer.parseInt(result) <= Integer.parseInt(end)){
+    @Then("the results should be the specified {string} exactly")
+    public void theResultsShouldBeTheSpecifiedExactly(String value) {
+        BrowserUtils.waitFor(4);
+        List<String> results = BrowserUtils.getElementsText(vehiclesPage.lastOdometerValues);
+        for (String result : results) {
+            result = result.replace(",", "");
+            boolean condition = (Integer.parseInt(result)) == Integer.parseInt(value);
+            if (condition) {
+                Assert.assertTrue("the result must be equal with filtered value", true);
+            }
+            System.out.println(result);
+        }
+    }
 
-              BrowserUtils.waitFor(2);
-                Assert.assertTrue("the result must be equal or bigger than min filtered value",(Integer.parseInt(result)) >= Integer.parseInt(start));
-                BrowserUtils.waitFor(2);
-                Assert.assertTrue("the result must be equal or less than max filtered value",(Integer.parseInt(result)) <= Integer.parseInt(end));
+    @Then("the results should be more than the specified {string}")
+    public void theResultsShouldBeMoreThanTheSpecified(String value) {
+
+        BrowserUtils.waitFor(4);
+        List<String> results = BrowserUtils.getElementsText(vehiclesPage.lastOdometerValues);
+        for (String result : results) {
+            result = result.replace(",", "");
+            boolean condition = (Integer.parseInt(result)) > Integer.parseInt(value);
+            if (condition) {
+                Assert.assertTrue("the result must be more than filtered value", true);
+            }
+            System.out.println(result);
+        }
+    }
+
+    @Then("the results should be less than the specified {string}")
+    public void theResultsShouldBeLessThanTheSpecified(String value) {
+
+        BrowserUtils.waitFor(4);
+        List<String> results = BrowserUtils.getElementsText(vehiclesPage.lastOdometerValues);
+        for (String result : results) {
+            result = result.replace(",", "");
+            boolean condition = (Integer.parseInt(result)) < Integer.parseInt(value);
+            if (condition) {
+                Assert.assertTrue("the result must be less than filtered value", true);
             }
             System.out.println(result);
         }
 
+    }
+
+    @Then("the methods shouldn't accept non-numeric values")
+    public void theMethodsShouldnTAcceptNonNumericValues() {
+        Assert.assertEquals("The methods shouldn't accept non-numeric values", "All", vehiclesPage.Allbtn.getText());
 
     }
 }
