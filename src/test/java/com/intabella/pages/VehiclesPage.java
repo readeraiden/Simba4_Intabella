@@ -16,14 +16,8 @@ public class VehiclesPage extends BasePage {
     @FindBy(css = ".fa-filter.hide-text")
     public WebElement filterIcon;
 
-    @FindBy(xpath = "//div[@class='ui-multiselect-footer']/../ul/li[5]")
-    public WebElement chassisNumber;
-
     @FindBy(xpath = "//a[@title='Reset']")
     public WebElement resetButton;
-
-    @FindBy(xpath = "//div[@class='btn filter-criteria-selector oro-drop-opener oro-dropdown-toggle filter-default-value']")
-    public WebElement chassisNumberAllbutton;
 
     @FindBy(xpath = "//div[@class='btn filter-criteria-selector oro-drop-opener oro-dropdown-toggle filter-default-value']")
     public WebElement lastOdometerAllbtn;
@@ -34,11 +28,24 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//span[@class='filter-items']/div[7]/div[2]//ul/li")
     public List<WebElement> methodOptions;
 
-    @FindBy(xpath = "//span[@class='filter-items']/div[5]/div[2]//ul/li")
-    public List<WebElement> methodOptionsChassis;
+    @FindBy(xpath= "//div[@class='filter-start']/input")
+    public WebElement filterStart;
 
-    @FindBy(xpath = "//div[@class='ui-multiselect-footer']/../ul/li")
-    public List<WebElement> filterOptions;
+    @FindBy(xpath = "//div[@class='filter-end']/input")
+    public WebElement filterEnd;
+
+    @FindBy(xpath = "//td[@class='number-cell grid-cell grid-body-cell grid-body-cell-LastOdometer']")
+    public List<WebElement> lastOdometerValues;
+
+    @FindBy(xpath = "//input[@id='LastOdometer']/../button")
+    public WebElement updateBtn;
+
+    @FindBy(xpath = "//div[@class='filter-start']/input")
+    public WebElement equalsInput;
+
+    @FindBy(xpath = "//div[@class='btn filter-criteria-selector oro-drop-opener oro-dropdown-toggle filter-default-value']//span/b")
+    public WebElement Allbtn;
+
 
 
     @FindBy (xpath = "(//button[@data-toggle='dropdown'])[1]")
@@ -62,6 +69,12 @@ public class VehiclesPage extends BasePage {
     public WebElement FilterMethods(String FilterName){
         return Driver.get().findElement(By.xpath("//div[normalize-space(text())='"+FilterName+"']"));
     }
+
+
+    public WebElement filterTypeLocators(String methodName) {
+        return Driver.get().findElement(By.xpath("//a[text()=\""+methodName+"\"]"));
+    }
+
 
 
 
