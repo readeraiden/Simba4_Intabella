@@ -32,4 +32,34 @@ Feature: Chassis Number Filter
     Examples:
       | method | value1 | value2|
       |between|    3000 |200000 |
+      |between|    16600 |18000 |
+
+    Scenario Outline: When the user selects the "Equals" method with numeric values, the results should match the specified value exactly
+      Given the user click on the filter button
+      When the user click on manage filter button
+      When the user click on "ChassisNumber"
+      And the user click on All button
+      And the user click on between button
+      When the user select "<method>"
+      And the user enters "<value>"
+      Then the results should be the specified "<value>" in "Chassis Number"
+
+      Examples:
+        | method | value |
+        |equals|   1528  |
+        |equals|   834414|
+
+  Scenario Outline:When the user selects the "More than" method with numeric values, the results should be more than the specified value
+    Given the user click on the filter button
+    When the user click on manage filter button
+    When the user click on "ChassisNumber"
+    And the user click on All button
+    And the user click on between button
+    When the user select "<method>"
+    And the user enters "<value>"
+    Then the results should be more than the specified "<value>" in "Chassis Number"
+
+    Examples:
+      | method | value |
+      |more than|   999999  |
 
