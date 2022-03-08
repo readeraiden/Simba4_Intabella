@@ -11,6 +11,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class FilterMenuStepDefs {
 
@@ -114,5 +117,10 @@ public class FilterMenuStepDefs {
         Assert.assertFalse( new VehiclesPage().createLocator(arg2).isSelected());
 
     }
-}
 
+
+
+
+
+
+}
