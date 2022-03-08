@@ -63,3 +63,27 @@ Feature: Chassis Number Filter
       | method | value |
       |more than|   999999  |
 
+    Scenario Outline: When the user selects the "Less than" method with numeric values, the results should be less than the specified value
+      Given the user click on the filter button
+      When the user click on manage filter button
+      When the user click on "ChassisNumber"
+      And the user click on All button
+      And the user click on between button
+      When the user select "<method>"
+      And the user enters "<value>"
+      Then the results should be less than the specified "<value>" in "Chassis Number"
+
+      Examples:
+        | method | value    |
+        |less than|   13000 |
+
+  Scenario: When the user selects the "Is Empty" method, only empty values should be displayed.
+    Given the user click on the filter button
+    When the user click on manage filter button
+    When the user click on "ChassisNumber"
+    And the user click on All button
+    And the user click on between button
+    When the user select "is empty"
+    And the user update
+    Then the results should be only empty value in "Chassis Number"
+

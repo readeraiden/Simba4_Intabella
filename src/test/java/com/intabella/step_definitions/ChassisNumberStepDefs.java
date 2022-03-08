@@ -107,6 +107,34 @@ public class ChassisNumberStepDefs {
 
 
     }
+
+    @Then("the results should be less than the specified {string} in {string}")
+    public void theResultsShouldBeLessThanTheSpecifiedIn(String value, String methodName) {
+
+        BrowserUtils.waitFor(4);
+        List<String> results = BrowserUtils.getElementsText(vehiclesPage.betweenValues(methodName));
+        for (String result : results) {
+            result = result.replace(",", "");
+            boolean condition = (Integer.parseInt(result)) < Integer.parseInt(value);
+            if (condition) {
+                Assert.assertTrue("the result must be more than filtered value", true);
+            }
+            System.out.println(result);
+        }
+
+    }
+
+    @And("the user update")
+    public void theUserUpdate() {
+        vehiclesPage.updateButtonn.click();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("the results should be only empty value in {string}")
+    public void theResultsShouldBeOnlyEmptyValueIn(String methodName) {
+        BrowserUtils.waitFor(4);
+        List<String> results = BrowserUtils.getElementsText(vehiclesPage.betweenValues(methodName));
+    }
 }
 
 
