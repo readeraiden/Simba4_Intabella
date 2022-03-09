@@ -19,3 +19,8 @@ Feature: Add Event 2
       | Weekly  |
       | Monthly |
       | Yearly  |
+
+  Scenario: Ends Menu
+    Given User clicks on any vehicle
+    When User clicks on Add Event button
+    Then Ending options should be clickable

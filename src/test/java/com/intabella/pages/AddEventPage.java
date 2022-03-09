@@ -52,6 +52,10 @@ public class AddEventPage extends BasePage {
     @FindBy(xpath = "//select[starts-with(@id,'recurrence-repeat')]//option")
     public List<WebElement> repeatDropdownMenu;
 
+    @FindBy(xpath = "(//input[@type='radio'])")
+    public List<WebElement> endsOptions;
+
+
 
 
 

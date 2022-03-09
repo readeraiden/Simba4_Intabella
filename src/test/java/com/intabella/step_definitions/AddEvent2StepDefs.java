@@ -43,6 +43,14 @@ public class AddEvent2StepDefs {
             Assert.assertTrue(allOptions.get(i).getText().contains(option.get(i)));
         }
     }
-
+    @Then("Ending options should be clickable")
+    public void ending_options_should_be_clickable() {
+        addEventPage.repeatCheckbox.click();
+        for (WebElement endingOptions : addEventPage.endsOptions) {
+            endingOptions.click();
+            BrowserUtils.waitFor(2);
+            Assert.assertTrue(endingOptions.isSelected());
+        }
+    }
 
 }
