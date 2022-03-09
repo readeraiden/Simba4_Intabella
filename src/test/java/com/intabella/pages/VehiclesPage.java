@@ -7,8 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Random;
 
 public class VehiclesPage extends BasePage {
+
+    Random rand = new Random();
 
     @FindBy(css = "a.add-filter-button")
     public WebElement manageFilters;
@@ -54,6 +57,14 @@ public class VehiclesPage extends BasePage {
     //Selects all the rows on the vehicle table:to find row number
     @FindBy (xpath = "//tr[@class='grid-row']")
     public List<WebElement> tableRowNumbers;
+
+    @FindBy(xpath = "//td//div/a[@data-toggle='dropdown']")
+    public List<WebElement> threeDots;
+
+    public WebElement threeDot = threeDots.get(rand.nextInt(threeDots.size()));
+
+    @FindBy(xpath = "//i[@class='fa-trash-o hide-text']")
+    public List<WebElement> deleteButton;
 
     public WebElement createLocator(String optionName) {
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
