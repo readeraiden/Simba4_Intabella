@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class AddEventPage extends BasePage {
+public class GeneralInformationPage extends BasePage {
 
     @FindBy(xpath = "//a[@title='Add an event to this record']")
     public WebElement addEventButton;
@@ -57,6 +57,12 @@ public class AddEventPage extends BasePage {
 
     @FindBy(css = "div.message-item")
     public WebElement newEventName;
+
+    @FindBy(xpath = "//span[text()='General Information']")
+    public WebElement pageTitle;
+
+    @FindBy(xpath = "//a[@title='Delete Car']")
+    public WebElement deleteButton;
 
 
 
