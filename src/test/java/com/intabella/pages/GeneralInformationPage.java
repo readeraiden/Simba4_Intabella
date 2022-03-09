@@ -46,6 +46,18 @@ public class GeneralInformationPage extends BasePage {
     @FindBy(xpath = " //div[normalize-space()='Calendar event saved']")
     public WebElement calendarEventAddedPopup;
 
+    @FindBy(xpath = "//input[starts-with(@id,'recurrence-repeat')]")
+    public WebElement repeatCheckbox;
+
+    @FindBy(xpath = "//select[starts-with(@id,'recurrence-repeat')]//option")
+    public List<WebElement> repeatDropdownMenu;
+
+    @FindBy(xpath = "(//input[@type='radio'])")
+    public List<WebElement> endsOptions;
+
+    @FindBy(css = "div.message-item")
+    public WebElement newEventName;
+
     @FindBy(xpath = "//span[text()='General Information']")
     public WebElement pageTitle;
 
