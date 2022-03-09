@@ -55,6 +55,8 @@ public class AddEventPage extends BasePage {
     @FindBy(xpath = "(//input[@type='radio'])")
     public List<WebElement> endsOptions;
 
+    @FindBy(css = "div.message-item")
+    public WebElement newEventName;
 
 
 
