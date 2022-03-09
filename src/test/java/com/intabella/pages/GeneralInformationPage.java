@@ -46,11 +46,14 @@ public class GeneralInformationPage extends BasePage {
     @FindBy(xpath = " //div[normalize-space()='Calendar event saved']")
     public WebElement calendarEventAddedPopup;
 
-    @FindBy(xpath = "//span[text()='General Information']")
-    public WebElement pageTitle;
-
     @FindBy(xpath = "//a[@title='Delete Car']")
     public WebElement deleteButton;
+
+    @FindBy(xpath = "//a[text()='Yes, Delete']")
+    public WebElement yesDeleteButton;
+
+    @FindBy(xpath = "//*[text()='Car deleted']")
+    public WebElement carDeleted;
 
 
 
