@@ -24,8 +24,10 @@ import java.util.concurrent.TimeUnit;
 public class LogoutStepDefs {
     LoginPage loginPage = new LoginPage();
     String url= ConfigurationReader.get("url");
-    Hooks hooks = new Hooks();
-    String browser=ConfigurationReader.get("browser");
+    String firstUrl;
+    String url1= Driver.get().getCurrentUrl(); //AC4
+    String url2= Driver.get().getCurrentUrl(); //AC4
+
 
 
 
@@ -46,44 +48,31 @@ public class LogoutStepDefs {
     @Given("user close the tab")
     public void user_close_the_tab() {
         BrowserUtils.waitFor(3);
-       // Driver.get().close(); //ikisi arasindaki fark
-        Driver.closeDriver();
+       firstUrl=Driver.get().getCurrentUrl();
+       Driver.closeDriver();
 
 
-
-
-    }
-
+  }
     @When("verify that user is logged out")
     public void verify_that_user_is_logged_out() {
-        Driver.get().get(url);
-        Assert.assertTrue(Driver.get().getCurrentUrl().contains("user/login"));
 
+        Driver.get().get(firstUrl);
+        BrowserUtils.waitFor(5);
 
-
-
+       Assert.assertNotEquals(firstUrl,Driver.get().getCurrentUrl());
 
     }
     @Given("user is away the from  keyboard for three minutes")
     public void user_is_away_the_from_keyboard_for_three_minutes() {
-       String url1= Driver.get().getCurrentUrl();
         BrowserUtils.waitFor(182);
-        String url2= Driver.get().getCurrentUrl();
-        Assert.assertNotEquals(url2,url1);
-//       Actions action = new Actions(Driver.get());
-//
-//        WebElement html=Driver.get().findElement(By.tagName("html"));// actionda kullanabilirsin dene
-//        WebDriverWait wait = new WebDriverWait(Driver.get(), 60);
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@class='no-hash']")));
-//       // Driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//       // action.moveToElement(loginPage.logoutButton).contextClick().build().perform();
-//        // Perform click-and-hold action on the element
-//        //action.clickAndHold(loginPage.logoutButton).build().perform();
-//        action.moveToElement(html);
-//        action.clickAndHold(loginPage.logoutButton).build().perform();
-
-
-
 
     }
+
+    @When("user must be logged out")
+    public void userMustBeLoggedOut() {
+        Assert.assertNotEquals(url2,url1);
+    }
+
+
+
 }
