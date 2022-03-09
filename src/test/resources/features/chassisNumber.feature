@@ -31,8 +31,8 @@ Feature: Chassis Number Filter
 
     Examples:
       | method | value1 | value2|
-      |between|    3000 |200000 |
-      |between|    16600 |18000 |
+      |between|    6000 |180000 |
+      |between|    16600 |29000 |
 
     Scenario Outline: When the user selects the "Equals" method with numeric values, the results should match the specified value exactly
       Given the user click on the filter button
@@ -46,7 +46,7 @@ Feature: Chassis Number Filter
 
       Examples:
         | method | value |
-        |equals|   1528  |
+        |equals|   64600  |
         |equals|   834414|
 
   Scenario Outline:When the user selects the "More than" method with numeric values, the results should be more than the specified value
@@ -84,6 +84,6 @@ Feature: Chassis Number Filter
     And the user click on All button
     And the user click on between button
     When the user select "is empty"
-    And the user update
+    And the user updates
     Then the results should be only empty value in "Chassis Number"
 

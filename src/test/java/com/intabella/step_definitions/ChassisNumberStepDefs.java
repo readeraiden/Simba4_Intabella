@@ -47,6 +47,7 @@ public class ChassisNumberStepDefs {
     public void theResultsShouldBeBetweenTheAndIn(String value1, String value2, String methodName) {
         BrowserUtils.waitFor(4);
         List<String> results = BrowserUtils.getElementsText(vehiclesPage.betweenValues(methodName));
+
         for(String result : results){
             result=result.replace(",","");
             if(Integer.parseInt(result) >= Integer.parseInt(value1) && Integer.parseInt(result) <= Integer.parseInt(value2)){
@@ -54,8 +55,9 @@ public class ChassisNumberStepDefs {
                 Assert.assertTrue("the result must be equal or bigger than min filtered value",(Integer.parseInt(result)) >= Integer.parseInt(value1));
                 BrowserUtils.waitFor(2);
                 Assert.assertTrue("the result must be equal or less than max filtered value",(Integer.parseInt(result)) <= Integer.parseInt(value2));
-            }
+                }
             System.out.println(result);
+
         }
     }
 
@@ -124,18 +126,28 @@ public class ChassisNumberStepDefs {
 
     }
 
-    @And("the user update")
-    public void theUserUpdate() {
+    @And("the user updates")
+    public void theUserUpdates() {
         vehiclesPage.updateButtonn.click();
         BrowserUtils.waitFor(2);
     }
 
     @Then("the results should be only empty value in {string}")
     public void theResultsShouldBeOnlyEmptyValueIn(String methodName) {
+
         BrowserUtils.waitFor(4);
         List<String> results = BrowserUtils.getElementsText(vehiclesPage.betweenValues(methodName));
+        for (String result : results) {
+            result = result.replace(",", "");
+
+            Assert.assertTrue("verify that the results shoul be empty",result.isBlank());
+
+
+        }
+
+
+        }
     }
-}
 
 
 
