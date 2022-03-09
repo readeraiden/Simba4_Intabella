@@ -1,6 +1,5 @@
 package com.intabella.step_definitions;
-
-import com.intabella.pages.AddEventPage;
+import com.intabella.pages.GeneralInformationPage;
 import com.intabella.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,7 +10,8 @@ import java.util.List;
 
 public class AddEvent2StepDefs {
 
-    AddEventPage addEventPage = new AddEventPage();
+
+    GeneralInformationPage addEventPage = new GeneralInformationPage();
 
     @Then("User can mark the event with any color")
     public void user_can_mark_the_event_with_any_color() {
