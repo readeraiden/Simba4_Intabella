@@ -35,7 +35,7 @@ public class VehicleTableArrangements {
     @Given("the user click on the view per page button")
     public void theUserClickOnTheViewPerPageButton() {
        BrowserUtils.waitFor(8);
-        vehiclesPage.viewPerPageButton.click();
+       vehiclesPage.viewPerPageButton.click();
     }
 
 
@@ -132,7 +132,7 @@ public class VehicleTableArrangements {
     @When("the user click {string} from drop down menu")
     public void theUserClickFromDropDownMenu(String value) {
 
-        BrowserUtils.waitFor(4);
+        BrowserUtils.waitFor(7);
         vehiclesPage.viewPerPageButton.click();
         WebElement myOption = Driver.get().findElement(By.xpath("//a[normalize-space()='"+value+"']"));
         myOption.click();
