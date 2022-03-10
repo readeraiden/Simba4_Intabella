@@ -177,6 +177,14 @@ public class VehicleTableArrangements {
     }
 
 
+    @When("the user click on reset button")
+    public void theUserClickOnResetButton() {
+        new VehiclesPage().resetButton.click();
+        BrowserUtils.waitFor(2);
+
+    }
+
+
 }
 
 
