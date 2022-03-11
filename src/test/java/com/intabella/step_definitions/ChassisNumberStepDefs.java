@@ -61,12 +61,6 @@ public class ChassisNumberStepDefs {
         }
     }
 
-    @And("the user select {string}")
-    public void theUserSelect(String method) {
-
-        vehiclesPage.filterTypeLocators(method).click();
-        BrowserUtils.waitFor(2);
-        }
 
     @And("the user enters {string}")
     public void theUserEnters(String value) {
