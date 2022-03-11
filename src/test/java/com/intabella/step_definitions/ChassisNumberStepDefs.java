@@ -61,7 +61,7 @@ public class ChassisNumberStepDefs {
         }
     }
 
-    @When("the user select {string}")
+    @And("the user select {string}")
     public void theUserSelect(String method) {
 
         vehiclesPage.filterTypeLocators(method).click();
