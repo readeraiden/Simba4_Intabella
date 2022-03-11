@@ -20,6 +20,13 @@ public class LoginPage {
     @FindBy(name = "_submit")
     public WebElement submit;
 
+    @FindBy (xpath = "//a[@class='no-hash']")
+    public WebElement logoutButton;
+
+    @FindBy (xpath = "//a[@href='javascript: void(0);']")
+    public WebElement userMenu;
+
+
 
     public void login(String userNameStr, String passwordStr) {
         userName.sendKeys(userNameStr);
