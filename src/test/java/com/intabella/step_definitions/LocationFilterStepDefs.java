@@ -17,7 +17,7 @@ public class LocationFilterStepDefs {
 
         BrowserUtils.waitFor(2);
 
-        List<String> actualResults = BrowserUtils.getElementsText(driverFilterPage.keywordResults);
+        List<String> actualResults = BrowserUtils.getElementsText(driverFilterPage.keywordResult);
         for (String actualResult : actualResults) {
             switch (methods){
                 case "Contains":
