@@ -26,6 +26,9 @@ public class DriverFilterPage extends BasePage{
     @FindBy(xpath = "//td[@data-column-label='Driver']")
     public List<WebElement> keywordResults;
 
+    @FindBy(xpath = "//td[@data-column-label='Location']")
+    public List<WebElement> keywordResult;
+
 
     public WebElement MethodsName(String methodsName){
         return Driver.get().findElement(By.xpath("//button[normalize-space()='"+methodsName+"']"));
