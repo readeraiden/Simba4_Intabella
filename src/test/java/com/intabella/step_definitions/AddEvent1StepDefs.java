@@ -1,6 +1,6 @@
 package com.intabella.step_definitions;
 
-import com.intabella.pages.AddEventPage;
+import com.intabella.pages.GeneralInformationPage;
 import com.intabella.utilities.BrowserUtils;
 import com.intabella.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddEvent1StepDefs {
-    AddEventPage addEventPage=new AddEventPage();
+    GeneralInformationPage addEventPage=new GeneralInformationPage();
 
     @Given("User clicks on any vehicle")
     public void userClicksOnAnyVehicle() throws InterruptedException {
