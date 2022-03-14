@@ -96,7 +96,7 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//a[text()='Yes, Delete']")
     public WebElement yesDeleteButton;
 
-    @FindBy(css = ".string-cell.grid-cell.grid-body-cell.grid-body-cell-Location")
+    @FindBy(css = ".grid-row.row-click-action")
     public List<WebElement> locations;
 
     public WebElement location=locations.get(rand.nextInt(locations.size()));
