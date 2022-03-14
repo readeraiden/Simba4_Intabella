@@ -12,7 +12,11 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/intabella/step_definitions",
         dryRun = false,
-        tags = "@wip"
+<<<<<<<<< Temporary merge branch 1
+        tags = "@wips"
+=========
+        tags = ""
+>>>>>>>>> Temporary merge branch 2
 )
 
 public class CukesRunner {

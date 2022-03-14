@@ -50,12 +50,8 @@ public class ChassisNumberStepDefs {
 
         for(String result : results){
             result=result.replace(",","");
-            if(Integer.parseInt(result) >= Integer.parseInt(value1) && Integer.parseInt(result) <= Integer.parseInt(value2)){
-                BrowserUtils.waitFor(2);
-                Assert.assertTrue("the result must be equal or bigger than min filtered value",(Integer.parseInt(result)) >= Integer.parseInt(value1));
-                BrowserUtils.waitFor(2);
-                Assert.assertTrue("the result must be equal or less than max filtered value",(Integer.parseInt(result)) <= Integer.parseInt(value2));
-                }
+
+            Assert.assertTrue("the result should be between the values",(Integer.parseInt(result) >= Integer.parseInt(value1) && Integer.parseInt(result) <= Integer.parseInt(value2)));
             System.out.println(result);
 
         }
@@ -79,10 +75,9 @@ public class ChassisNumberStepDefs {
         List<String> results = BrowserUtils.getElementsText(vehiclesPage.betweenValues(methodName));
         for (String result : results) {
             result = result.replace(",", "");
-            boolean condition = (Integer.parseInt(result)) == Integer.parseInt(value);
-            if (condition) {
-                Assert.assertTrue("the result must be equal with filtered value", true);
-            }
+
+                Assert.assertEquals("the result must be equal with filtered value", (Integer.parseInt(value)),(Integer.parseInt(result)));
+
             System.out.println(result);
         }
     }
@@ -94,11 +89,10 @@ public class ChassisNumberStepDefs {
         List<String> results = BrowserUtils.getElementsText(vehiclesPage.betweenValues(methodName));
         for (String result : results) {
             result = result.replace(",", "");
-            boolean condition = (Integer.parseInt(result)) > Integer.parseInt(value);
-            if (condition) {
-                Assert.assertTrue("the result must be more than filtered value", true);
-            }
-            System.out.println(result);
+
+                Assert.assertTrue("the result must be more than filtered value", (Integer.parseInt(result)) > Integer.parseInt(value));
+
+
         }
 
 
@@ -112,10 +106,9 @@ public class ChassisNumberStepDefs {
         for (String result : results) {
             result = result.replace(",", "");
             boolean condition = (Integer.parseInt(result)) < Integer.parseInt(value);
-            if (condition) {
-                Assert.assertTrue("the result must be more than filtered value", true);
-            }
-            System.out.println(result);
+
+                Assert.assertTrue("the result must be more than filtered value", (Integer.parseInt(result)) < Integer.parseInt(value));
+
         }
 
     }
