@@ -25,6 +25,21 @@ import org.junit.Assert;
 
 import java.util.List;
 
+import com.intabella.pages.DriverFilterPage;
+import com.intabella.pages.VehiclesPage;
+import com.intabella.utilities.BrowserUtils;
+import com.intabella.utilities.Driver;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.bytebuddy.implementation.auxiliary.MethodCallProxy;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import java.util.Locale;
+
 public class DriverFilterStepDefs {
 
     DriverFilterPage driverFilterPage = new DriverFilterPage();
@@ -32,6 +47,11 @@ public class DriverFilterStepDefs {
 
     @Then("the {string} filter should be selected")
     public void theFilterShouldBeSelected(String FilterMenu) {
+        Assert.assertTrue(new VehiclesPage().createLocator(FilterMenu).isSelected());
+    }
+
+    @And("the user click on {string} menu")
+    public void theUserClickOnMenu(String FilterMenu) {
         new VehiclesPage().FilterMethods(FilterMenu).click();
     }
 
@@ -97,12 +117,13 @@ public class DriverFilterStepDefs {
     }
 
 
-    @Then("the methods should not accept NonAlphabetical keyword")
-    public void theMethodsShouldNotAcceptNonAlphabeticalKeyword() {
+    @Then("the methods should not accept NonAlphabetical {string}")
+    public void theMethodsShouldNotAcceptNonAlphabetical(String keyword) {
         String getInput =driverFilterPage.inputKeyword.getAttribute("value");
-        System.out.println("getInput = " + getInput);
-        Assert.assertTrue(getInput.isEmpty());
-    }
+        System.out.println("sendKeyword = " + keyword);
+        System.out.println("getKeyword = " + getInput);
+        Assert.assertNotEquals("Non_Alphabetical chars should NOT be typed into search box",keyword,getInput);
 
+    }
 
 }
