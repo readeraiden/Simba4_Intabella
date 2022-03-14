@@ -32,7 +32,7 @@ public class DriverFilterStepDefs {
 
     @Then("the {string} filter should be selected")
     public void theFilterShouldBeSelected(String FilterMenu) {
-        new VehiclesPage().FilterMethods(FilterMenu).click();
+      Assert.assertTrue(new VehiclesPage().createLocator(FilterMenu).isSelected());
     }
 
 
