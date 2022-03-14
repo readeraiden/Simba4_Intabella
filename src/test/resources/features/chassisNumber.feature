@@ -17,7 +17,7 @@ Feature: Chassis Number Filter
     And the user click on between button
     Then Chassis Number filter should provide the "<methods>"
     Examples:
-      | methods                                                                                                                            |
+      | methods                                                                                                                          |
       | Between, Not Between, Equals, Not Equals, More Than, Less Than, Equals Or More Than, Equals Or Less Than, Is Empty, Is Not Empty |
 
   @INTA-1203 @INTA-1200
