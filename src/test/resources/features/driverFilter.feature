@@ -72,6 +72,7 @@ Feature: Driver Filter
     When the user click on manage filter button
     When the user click on "Driver"
     Then the "Driver" filter should be selected
+    And the user click on "Driver" menu
     And the user click on "contains" button
     Then the user should see the following options
       |Contains           |
@@ -90,6 +91,7 @@ Feature: Driver Filter
     When the user click on manage filter button
     When the user click on "Driver"
     Then the "Driver" filter should be selected
+    And the user click on "Driver" menu
     And the user click on "contains" button
     When the user select "<methods>"
     And the user enters "<keyword>" into inputBox
@@ -110,10 +112,11 @@ Feature: Driver Filter
     When the user click on manage filter button
     When the user click on "Driver"
     Then the "Driver" filter should be selected
+    And the user click on "Driver" menu
     And the user click on "contains" button
     When the user select "<methods>"
     And the user enters "<keyword>" into inputBox
-    Then the methods should not accept NonAlphabetical keyword
+    Then the methods should not accept NonAlphabetical "<keyword>"
     Examples:
       | methods          | keyword              |
       | Contains         | /987+#5£@%           |

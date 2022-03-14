@@ -63,7 +63,7 @@ public class FilterMenuStepDefs {
     public void theUserClickOn(String option){
         VehiclesPage vehiclesPage = new VehiclesPage();
         vehiclesPage.createLocator(option).click();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(5);
     }
 
     @Then("the {string} should be selected")

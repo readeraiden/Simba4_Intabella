@@ -5,7 +5,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AddEvent2StepDefs {
@@ -34,14 +33,10 @@ public class AddEvent2StepDefs {
     @Then("Repeat down menu should include below options")
     public void repeat_down_menu_should_include_below_options(List<String> options) {
         addEventPage.repeatCheckbox.click();
-        ArrayList<String> option=new ArrayList<>();
-        for (int i=0; i<4 ;i++ ) {
-            option.add(i, options.get(i));
+        for (int i = 0; i < options.size()-1 ; i++) {
+            Assert.assertTrue(addEventPage.repeatDropdownMenu.get(i).getText().contains(options.get(i)));
         }
-        List<WebElement> allOptions = addEventPage.repeatDropdownMenu;
-        for (int i = 0; i < option.size()-1 ; i++) {
-            Assert.assertTrue(allOptions.get(i).getText().contains(option.get(i)));
-        }
+
     }
     @Then("Ending options should be clickable")
     public void ending_options_should_be_clickable() {
