@@ -34,8 +34,8 @@ public class VehicleTableArrangements {
     //-------------------
     @Given("the user click on the view per page button")
     public void theUserClickOnTheViewPerPageButton() {
-       BrowserUtils.waitFor(4);
-        vehiclesPage.viewPerPageButton.click();
+       BrowserUtils.waitFor(8);
+       vehiclesPage.viewPerPageButton.click();
     }
 
 
@@ -46,9 +46,9 @@ public class VehicleTableArrangements {
 
         WebElement myOption = Driver.get().findElement(By.xpath("//a[normalize-space()='"+options+"']"));
 
-        if(!myOption.getText().contains("25")){
+        //if(!myOption.getText().contains("25")){
             myOption.click();
-        }
+       // }
 
 
 
@@ -132,7 +132,7 @@ public class VehicleTableArrangements {
     @When("the user click {string} from drop down menu")
     public void theUserClickFromDropDownMenu(String value) {
 
-        BrowserUtils.waitFor(4);
+        BrowserUtils.waitFor(7);
         vehiclesPage.viewPerPageButton.click();
         WebElement myOption = Driver.get().findElement(By.xpath("//a[normalize-space()='"+value+"']"));
         myOption.click();
@@ -173,6 +173,14 @@ public class VehicleTableArrangements {
 
        WebElement columnSorted=Driver.get().findElement(By.xpath("(//th[contains(@class,'grid-cell grid-header-cell grid-header-cell-"+sortColumn+"')])"));
        Assert.assertFalse(columnSorted.getAttribute("class").contains("ascending"));
+
+    }
+
+
+    @When("the user click on reset button")
+    public void theUserClickOnResetButton() {
+        new VehiclesPage().resetButton.click();
+        BrowserUtils.waitFor(2);
 
     }
 
