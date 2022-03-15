@@ -21,10 +21,10 @@ public class FilterMenuStepDefs {
 
     @Given("the user click on the filter button")
     public void theUserClickOnTheFilterButton() {
-        BrowserUtils.waitForPageToLoad(10);
+        BrowserUtils.waitForPageToLoad(25);
         vehiclesPage.filterIconClick();
-        BrowserUtils.waitFor(2);
-       // Driver.get().findElement(By.cssSelector("i.fa-filter.hide-text")).click();
+        BrowserUtils.waitFor(5);
+
     }
 
     @When("the user click on manage filter button")
@@ -63,7 +63,7 @@ public class FilterMenuStepDefs {
     public void theUserClickOn(String option){
         VehiclesPage vehiclesPage = new VehiclesPage();
         vehiclesPage.createLocator(option).click();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(5);
     }
 
     @Then("the {string} should be selected")
@@ -103,12 +103,7 @@ public class FilterMenuStepDefs {
 
     }
 
-    @When("the user click on reset button")
-    public void theUserClickOnResetButton() {
-        new VehiclesPage().resetButton.click();
-        BrowserUtils.waitFor(2);
 
-    }
 
     @Then("verify that {string}, {string},{string} filters are not selected")
     public void verifyThatFiltersAreNotSelected(String arg0, String arg1, String arg2) {

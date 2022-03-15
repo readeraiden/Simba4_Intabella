@@ -1,6 +1,7 @@
 package com.intabella.step_definitions;
 
 import com.intabella.pages.GeneralInformationPage;
+import com.intabella.pages.GeneralInformationPage;
 import com.intabella.utilities.BrowserUtils;
 import com.intabella.utilities.Driver;
 import io.cucumber.java.en.And;

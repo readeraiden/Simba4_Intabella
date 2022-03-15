@@ -87,6 +87,25 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//i[@class='fa-trash-o hide-text']")
     public List<WebElement> deleteButton;
 
+    @FindBy(xpath = "//h3[text()='Delete Confirmation']")
+    public WebElement popUp;
+
+    @FindBy(xpath = "//*[text()='Item deleted']")
+    public WebElement itemDeleted;
+
+    @FindBy(xpath = "//a[text()='Yes, Delete']")
+    public WebElement yesDeleteButton;
+
+    @FindBy(css = ".grid-row.row-click-action")
+    public List<WebElement> locations;
+
+    public WebElement location=locations.get(rand.nextInt(locations.size()));
+
+    @FindBy(xpath = "//label[contains(.,'Total of ')]")
+    public WebElement totalRecords;
+
+
+
     public WebElement createLocator(String optionName) {
         return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
     }
