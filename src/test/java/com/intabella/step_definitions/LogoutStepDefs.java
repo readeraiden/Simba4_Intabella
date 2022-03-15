@@ -25,8 +25,8 @@ public class LogoutStepDefs {
     LoginPage loginPage = new LoginPage();
     String url= ConfigurationReader.get("url");
     String firstUrl;
-    String url1= Driver.get().getCurrentUrl(); //AC4
-    String url2= Driver.get().getCurrentUrl(); //AC4
+    String url1= Driver.get().getCurrentUrl();
+    String url2= Driver.get().getCurrentUrl();
 
 
 
