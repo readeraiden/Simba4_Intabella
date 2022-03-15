@@ -25,8 +25,8 @@ public class LogoutStepDefs {
     LoginPage loginPage = new LoginPage();
     String url= ConfigurationReader.get("url");
     String firstUrl;
-    String url1= Driver.get().getCurrentUrl();
-    String url2= Driver.get().getCurrentUrl();
+    String url1;
+
 
 
 
@@ -64,12 +64,14 @@ public class LogoutStepDefs {
     }
     @Given("user is away the from  keyboard for three minutes")
     public void user_is_away_the_from_keyboard_for_three_minutes() {
+        url1= Driver.get().getCurrentUrl();
         BrowserUtils.waitFor(182);
 
     }
 
     @When("user must be logged out")
     public void userMustBeLoggedOut() {
+        String url2= Driver.get().getCurrentUrl();
         Assert.assertNotEquals(url2,url1);
     }
 
