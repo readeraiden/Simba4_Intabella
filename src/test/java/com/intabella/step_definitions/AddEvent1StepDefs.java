@@ -2,6 +2,7 @@ package com.intabella.step_definitions;
 
 import com.intabella.pages.GeneralInformationPage;
 import com.intabella.pages.GeneralInformationPage;
+import com.intabella.pages.VehiclesPage;
 import com.intabella.utilities.BrowserUtils;
 import com.intabella.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -17,13 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddEvent1StepDefs {
+
     GeneralInformationPage addEventPage=new GeneralInformationPage();
 
     @Given("User clicks on any vehicle")
     public void userClicksOnAnyVehicle() throws InterruptedException {
         BrowserUtils.waitForPageToLoad(5);
-        BrowserUtils.waitForVisibility(addEventPage.oneVehicleToClick,20);
-        addEventPage.oneVehicleToClick.click();
+        BrowserUtils.waitFor(5);
+        new VehiclesPage().location.click();
+        BrowserUtils.waitFor(5);
         Assert.assertTrue(addEventPage.generalInfo.isDisplayed());
         BrowserUtils.waitForPageToLoad(5);
     }
@@ -72,9 +75,11 @@ public class AddEvent1StepDefs {
     @When("User clicks on the save button")
     public void user_clicks_on_the_save_button() {
         addEventPage.saveButton.click();
+
     }
     @Then("{string} message should be displayed")
     public void message_should_be_displayed(String message) throws InterruptedException {
+
         Assert.assertEquals(message,addEventPage.blankFieldwarningMessage.getText());
         System.out.println("warningMessage = " + addEventPage.blankFieldwarningMessage.getText());
 
