@@ -70,6 +70,12 @@ public class GeneralInformationPage extends BasePage {
 
     @FindBy(xpath = "//a[@title='Edit Car']")
     public WebElement editButton;
+  
+    @FindBy(xpath = "//a[text()='Yes, Delete']")
+    public WebElement yesDeleteButton;
+
+    @FindBy(xpath = "//*[text()='Car deleted']")
+    public WebElement carDeleted;
 
     public List<String> getAllInfo() {
 
