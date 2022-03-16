@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -67,6 +68,20 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//span[@class='filter-items']/div[5]/div[2]//ul/li")
     public List<WebElement> methodOptionsChassis;
 
+    public List<String> getAllInfoOfRow(int rowNumber) {
+        List<WebElement> getAllInfo = new ArrayList<>();
+        for (int i = 2; i < 21; i++) {
+            getAllInfo.add(Driver.get().findElement(By.xpath("//tr[@class='grid-row row-click-action']["+rowNumber+"]//td["+i+"]")));
+        }
+        List<String> elementsText = BrowserUtils.getElementsText(getAllInfo);
+        String noComma4 = elementsText.get(4).replaceAll(",","");
+        elementsText.set(4,noComma4);
+        String noComma6 = elementsText.get(6).replaceAll(",","");
+        elementsText.set(6,noComma6);
+
+        return elementsText;
+    }
+
 
     public List<WebElement> betweenValues(String methodName) {
         return Driver.get().findElements(By.xpath("//td[@data-column-label='"+methodName+"']"));
@@ -74,6 +89,12 @@ public class VehiclesPage extends BasePage {
 
     @FindBy (xpath = "(//button[@data-toggle='dropdown'])[1]")
     public WebElement viewPerPageButton;
+
+    @FindBy(css = "div[class='dropdown'] > a[data-toggle='dropdown']")
+    public WebElement dropdownToggle;
+
+    @FindBy(xpath =" (//i[@class='fa-eye hide-text'])[1]")
+    public WebElement viewIcon;
 
     //Selects all the rows on the vehicle table:to find row number
     @FindBy (xpath = "//tr[@class='grid-row']")
@@ -103,7 +124,6 @@ public class VehiclesPage extends BasePage {
 
     @FindBy(xpath = "//label[contains(.,'Total of ')]")
     public WebElement totalRecords;
-
 
 
     public WebElement createLocator(String optionName) {
