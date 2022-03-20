@@ -127,7 +127,7 @@ public class VehiclesPage extends BasePage {
 
 
     public WebElement createLocator(String optionName) {
-        return Driver.get().findElement(By.xpath( "//input[@value='" +optionName+ "']"));
+        return Driver.get().findElement(By.xpath( "//input[@value='"+optionName+"']"));
     }
 
     public void filterIconClick()  {
