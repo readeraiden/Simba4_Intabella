@@ -54,7 +54,7 @@ Feature: Driver Filter
     And the user click on "contains" button
     When the user select "<methods>"
     And the user enters "<keyword>" into inputBox
-    Then the methods should not accept NonAlphabetical keyword
+    Then the methods should not accept NonAlphabetical "<keyword>"
     Examples:
       | methods          | keyword              |
       | Contains         | /987+#5£@%           |
@@ -63,8 +63,6 @@ Feature: Driver Filter
       | Starts With      | Mrs*                 |
       | Ends With        | @PhD                 |
 
-    When the user click on "Driver"
-    Then the "Driver" filter should be selected
 
   @INTA-1157 @INTA-1155
   Scenario: User should see the methods under the "Driver" filter

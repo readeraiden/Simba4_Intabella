@@ -19,7 +19,7 @@ Feature: Filter Menu
 
 
   @INTA-1150 @AC3
-  Scenario Outline:User can apply filters by clicking on the filter name, from the 'Manage Filters' menu.
+  Scenario Outline: User can apply filters by clicking on the filter name, from the 'Manage Filters' menu.
     Given the user click on the filter button
     And the user click on manage filter button
     When the user click on "<option>"
@@ -47,7 +47,7 @@ Feature: Filter Menu
       | Power               |
 
   @INTA-1151 @AC4
-  Scenario Outline:User can see the corresponding filter option after typing the filter name on the filter input box, from the 'Manage Filters' menu.
+  Scenario Outline: User can see the corresponding filter option after typing the filter name on the filter input box, from the 'Manage Filters' menu.
     Given the user click on the filter button
     And the user click on manage filter button
     When the user types "<wordsToSearch>" on the filter input box
@@ -68,7 +68,7 @@ Feature: Filter Menu
     Then Verify that "Tags", "Location" and "Driver" options are selected
 
   @INTA-1153 @AC6
-  Scenario:User can remove all filters by clicking on the reset icon, under the 'Fleet-Vehicles' module
+  Scenario: User can remove all filters by clicking on the reset icon, under the 'Fleet-Vehicles' module
     Given the user click on the filter button
     And the user click on manage filter button
     And the user click on "Tags" ,"Location" , "Driver"
