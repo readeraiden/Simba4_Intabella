@@ -7,11 +7,6 @@ Feature: Default
 		Given User clicks on any vehicle	
 
 
-	@INTA-1187 @INTA-1186
-	Scenario: US004_AC1_TC1 "View Per Page" button should be "25" by default (Nezihe)
-		Scenario: "View Per Page" button should be "25" by default.
-		    Then verify Manage Filter button is "25" by default.	
-
 
 	@INTA-1147 @INTA-1146
 	Scenario: US09-AC01-TC01(Fethullah)"Manage Filter" button should be hidden by default.
