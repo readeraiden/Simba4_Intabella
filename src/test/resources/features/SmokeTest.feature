@@ -1,7 +1,7 @@
 @INTA-1232
 Feature: Default
 
-#Add Smoke Test 2
+#Add Smoke Test 3
 	@INTA-1165 @INTA-1163
 	Scenario: US005-AC1-Verify that Store Manager can access "General Information" page by clicking on any vehicle/row
 		Given User clicks on any vehicle	

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         glue = "com/intabella/step_definitions",
         dryRun = false,
 
-        tags = ""
+        tags = "@INTA-1232"
 
 )
 
